@@ -7,13 +7,20 @@
 <h1></h1>
 </div>
 
-#### 👾 内核级 root impl. 
+#### 👾 内核侧 root 实现 
 - 伪装官方 proc/version
 - 伪装官方 proc/config.gz
 - KernelSU Next: latest release
 - KernelSU Scope Minimized Hooks: v1.4
 - 启用 tmpfs 拓展属性以支持 Mountify
 - 修复 ptrace msg leak
+
+#### 🌳 内核侧设备树覆写
+- 无需关闭 AVB Verify, 使用 overwriter 修补设备树
+- OnePlus Open (22899)
+  - 启用全局 120Hz 且保留 ltpo 特性
+- OPPO Find N3 (22003, 22203)
+  - 暂无修改 (需要用户提交 dts 与 cmdline)
 
 #### 🦄 编译器优化
 - 使用 LTO=Thin 优化编译
@@ -47,7 +54,6 @@
 - TCP 链接禁用 Nagle 算法以降低延迟
 
 #### 📦 内存优化
-- 启用 OnePlus CONT_PTE_HUGEPAGE
 - lz4: v1.10.0 + armv8 硬件加速
 - 优化的 mem* (~25%+ faster)
   - memcpy
@@ -56,6 +62,7 @@
 - vmalloc: 支持大块虚拟内存
 - mm: 不为 user/admin 登录而保留内存 (~136m)
 - arm64: clear_page 对齐 16b
+- loop: 提高回写环优先级
 - 小幅 zram 优化
 - selinux: 避免动态内存分配
 
