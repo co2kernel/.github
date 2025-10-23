@@ -5,7 +5,7 @@
 
 Customized kernel built for Hedwig/Xueying (OnePlus Open)
 
-[📖 **zh-CN**](https://github.com/co2kernel/.github/blob/main/profile/README.md)
+[📙 **zh-CN**](https://github.com/co2kernel/.github/blob/main/profile/README.md)
 <h1></h1>
 </div>
 
