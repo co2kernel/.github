@@ -4,6 +4,8 @@
 ***C**ustom **O**nePlus **O**pen **K**ernel*
 
 为 Hedwig/Xueying (OnePlus Open) 编译的客制化内核
+
+**[README in en-US](https://github.com/co2kernel/.github/blob/main/profile/README_EN.md)**
 <h1></h1>
 </div>
 
@@ -16,7 +18,7 @@
 - 修复 ptrace msg leak
 
 #### 🌳 内核侧设备树覆写
-- 无需关闭 AVB Verify, 使用 overwriter 修补设备树
+- 无需关闭 AVB verify, 使用 overwriter 修补设备树
 - OnePlus Open (22899)
   - 启用全局 120Hz 且保留 ltpo 特性
 - OPPO Find N3 (22003, 22203)
@@ -48,9 +50,9 @@
 - 相对宽容的 alarmtimer, 避免阻止 suspend
 
 #### 📈 网络栈优化
-- 引入采用 bbr 收敛方式的 westwood-plus 算法变种 "westsood-sub"
-- 将 westwood-sub 作为默认的 TCP 拥塞算法
-- 将 fq_codel 作为默认的数据包队列调度器
+- 引入采用 bbr 收敛方式的 "westwood-plus" 算法变种 "westsood-sub"
+- 将 "westwood-sub" 作为默认的 TCP 拥塞算法
+- 将 "FQ-CoDel" 作为默认的数据包队列调度器
 - TCP 链接禁用 Nagle 算法以降低延迟
 
 #### 📦 内存优化
@@ -77,9 +79,8 @@
 - 支持 Nintendo Pro / Joy-con 手柄
 
 ## 🍀 特别感谢
+此内核合并了来自 **Sultan, arter97, Pzqqt, brokestar233, ztc1997, hfdem 等内核开发者** 的提交
 
-此内核合并了来自 **Sultan, arter97, Pzqqt, brokestar233, ztc1997, hfdem** 等内核开发者的提交。
+感谢 **Pzqqt, brokestar233, Cloud_Yun** 提供了开发指导
 
-感谢 **Pzqqt, brokestar233, Cloud_Yun** 提供了开发指导。
-
-内核开发者们的排名不分先后。
+*内核开发者们的排名不分先后*
