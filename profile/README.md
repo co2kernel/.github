@@ -20,7 +20,7 @@
 #### 🌳 内核侧设备树覆写
 - 无需关闭 AVB verify, 使用 overwriter 修补设备树
 - OnePlus Open (22899)
-  - 启用全局 120Hz 且保留 ltpo 特性
+  - 强制全局 120Hz 且保留 LTPO 特性
 - OPPO Find N3 (22003, 22203)
   - 暂无修改 (需要用户提交 dts 与 cmdline)
 
@@ -37,7 +37,7 @@
 - 去除 drm 中的 debug
 - 去除 psi 中的 debug
 - 关闭 self-hosted debug
-- selinux: 去除对 audit 的依赖
+- 去除 SELinux 对 audit 的依赖
 
 #### 🔓 妥协安全性换取的性能提升
 - 禁用 Spectre-BHB 缓解措施以启用基于历史的分支预测
