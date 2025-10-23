@@ -5,7 +5,7 @@
 
 为 Hedwig/Xueying (OnePlus Open) 编译的客制化内核
 
-[📚 **en-US**](https://github.com/co2kernel/.github/blob/main/profile/README_EN.md)
+[📘 **en-US**](https://github.com/co2kernel/.github/blob/main/profile/README_EN.md)
 <h1></h1>
 </div>
 
