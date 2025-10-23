@@ -5,7 +5,7 @@
 
 为 Hedwig/Xueying (OnePlus Open) 编译的客制化内核
 
-**[README in en-US](https://github.com/co2kernel/.github/blob/main/profile/README_EN.md)**
+[📚 **en-US**](https://github.com/co2kernel/.github/blob/main/profile/README_EN.md)
 <h1></h1>
 </div>
 
@@ -44,7 +44,7 @@
 
 #### ⚡ CPU 优化
 - cpuidle: 去除 menu 的 iowait
-- PELT 半衰期 32ms 减少到 16ms
+- PELT 半衰期 32ms → 16ms
 - 减少任务迁移开销
 - 默认使用 LSE 原子指令集
 - 相对宽容的 alarmtimer, 避免阻止 suspend
