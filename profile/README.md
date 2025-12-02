@@ -23,13 +23,15 @@
 
 <h1></h1>
 
-#### 👾 内核侧 root 实现 
+#### 👾 Hacky trickies
 - 伪装官方 proc/version
 - 伪装官方 proc/config.gz
-- KernelSU Next: latest release
-- KernelSU Scope Minimized Hooks: v1.4
-- 启用 tmpfs 拓展属性以支持 Mountify
+- 启用 tmpfs 拓展属性以支持 Mountify tmpfs 模式
 - 修复 ptrace msg leak
+- TCP 链接禁用 Nagle 算法以降低延迟
+- 为 chroot distros 下的 Wine 添加 NTSync 驱动
+- 添加 Re:Kernel 用户态 "墓碑" 模块支持
+- 拓展 Nintendo Pro / Joy-con 手柄支持
 
 #### 🌳 内核侧设备树覆写
 - 无需关闭 AVB verify, 使用 overwriter 修补设备树
@@ -51,7 +53,6 @@
 - BLK/BLKdev 不收集 io stat
 - 去除 drm 中的 debug
 - 去除 psi 中的 debug
-- 关闭 self-hosted debug
 
 #### 🔓 妥协安全性换取的性能提升
 - 禁用 Spectre-BHB 缓解措施以启用基于历史的分支预测
@@ -62,13 +63,6 @@
 - 减少任务迁移开销
 - 默认使用 LSE 原子指令集
 - CRC-32 使用 ARM64 加速
-- 相对宽容的 alarmtimer, 避免阻止 suspend
-
-#### 📈 网络栈优化
-- 引入采用 bbr 收敛方式的 "westwood-plus" 算法变种 "westsood-sub"
-- 将 "westwood-sub" 作为默认的 TCP 拥塞算法
-- 将 "FQ-CoDel" 作为默认的数据包队列调度器
-- TCP 链接禁用 Nagle 算法以降低延迟
 
 #### 🧻 内存优化
 - lz4: v1.10.0 + ARMv8 加速
@@ -85,21 +79,8 @@
 - selinux: 避免动态内存分配
 
 #### 📀 存储优化
-- 添加 SSG I/O 调度器，并强制将其设为默认的 I/O 调度器
-- fs: 减少缓存以发挥大内存的作用
+- 强制将 `none` 设为默认的 I/O 调度器
 - fs: 对齐 8b
-
-#### 🎮 游戏优化
-- 同步上游手柄适配列表
-- 同步上游手柄按钮支持
-- 支持 Nintendo Pro / Joy-con 手柄
-- 为 Wine 添加 NTSync 驱动
-
-#### 📦 LXC 容器支持
-- 可选 LXC 容器支持
-
-#### 🪦 "墓碑" 模块支持
-- 添加 Re:Kernel 用户态 "墓碑" 模块支持
 
 ## 🍀 特别感谢
 此内核合并了来自 **Sultan, arter97, Pzqqt, brokestar233, ztc1997, hfdem 等内核开发者** 的提交
