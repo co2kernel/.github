@@ -30,7 +30,6 @@
 - 修复 ptrace msg leak
 - TCP 链接禁用 Nagle 算法以降低延迟
 - 为 chroot distros 下的 Wine 添加 NTSync 驱动
-- 添加 Re:Kernel 用户态 "墓碑" 模块支持
 - 拓展 Nintendo Pro / Joy-con 手柄支持
 
 #### 🌳 内核侧设备树覆写
