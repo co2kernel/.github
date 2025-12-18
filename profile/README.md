@@ -1,8 +1,8 @@
 <div align = center>
-<h1>CO₂Kernel</h1>
 
-***C**ustom **O**nePlus **O**pen **K**ernel*
+<img src="https://github.com/co2kernel/.github/raw/refs/heads/main/profile/logo.png" width="462" height="146" style="display: block; margin: 0 auto;" alt="CO₂Kernel">
 
+---
 为 Hedwig/Xueying (OnePlus Open) 编译的客制化内核
 
 [![English][readme-en-badge]][readme-en-url]
