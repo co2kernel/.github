@@ -24,11 +24,12 @@
 <h1></h1>
 
 #### 👾 Hacky trickies
+- 使用 OPTPROBE 加速 KernelSU LKM 的性能
 - 伪装官方 proc/version
 - 伪装官方 proc/config.gz
 - 修复 ptrace msg leak
 - TCP 链接禁用 Nagle 算法以降低延迟
-- 为 chroot distros 下的 Wine 添加 NTSync 驱动
+- 为 Wine 添加 NTSync 驱动
 - 拓展 Nintendo Pro / Joy-con 手柄支持
 
 #### 🌳 内核侧设备树覆写
