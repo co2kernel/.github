@@ -26,7 +26,6 @@
 #### 👾 Hacky trickies
 - 伪装官方 proc/version
 - 伪装官方 proc/config.gz
-- 启用 tmpfs 拓展属性以支持 Mountify tmpfs 模式
 - 修复 ptrace msg leak
 - TCP 链接禁用 Nagle 算法以降低延迟
 - 为 chroot distros 下的 Wine 添加 NTSync 驱动
@@ -69,8 +68,6 @@
   - memcpy
   - memmove
   - memset
-- kvmalloc: 让 kmalloc 的快速路径更快
-- vmalloc: 支持大块虚拟内存
 - mm: 不为 user/admin 登录而保留内存 (~136m)
 - arm64: clear_page 对齐 16b
 - loop: 提高回写环优先级
