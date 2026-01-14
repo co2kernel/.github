@@ -31,13 +31,12 @@
 - TCP 链接禁用 Nagle 算法以降低延迟
 - 为 Wine 添加 NTSync 驱动
 - 拓展 Nintendo Pro / Joy-con 手柄支持
+- **内核侧设备树覆写** 无需关闭 AVB 校验, 使用 overwriter 修补设备树
 
-#### 🌳 内核侧设备树覆写
-- 无需关闭 AVB verify, 使用 overwriter 修补设备树
-- OnePlus Open (22899)
-  - 强制全局 120Hz 且保留 LTPO 特性
-- OPPO Find N3 (22003, 22203)
-  - 暂无修改 (需要用户提交 dts 与 cmdline)
+| 设备树覆写支持机型 | prjname | 修改 |
+| - | - | - |
+| OnePlus Open | 22899          | 强制全局 120Hz 且保留 LTPO 特性
+| OPPO Find N3 | 22003 / 22203  | 暂无修改 (需要用户提交 dts 与 cmdline)
 
 #### 🦄 编译器优化
 - 使用 LTO=Thin 优化编译
