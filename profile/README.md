@@ -24,14 +24,15 @@
 <h1></h1>
 
 #### 👾 Hacky trickies
-- 使用 OPTPROBE 加速 KernelSU LKM 的性能
+- 禁用 Spectre-BHB 缓解措施以启用基于历史的分支预测
+- 使用 optprobe 加速 KernelSU LKM 与 OnePlus 内核模块 Kprobe 的性能
 - 伪装官方 proc/version
 - 伪装官方 proc/config.gz
 - 修复 ptrace msg leak
 - TCP 链接禁用 Nagle 算法以降低延迟
 - 为 Wine 添加 NTSync 驱动
 - 拓展 Nintendo Pro / Joy-con 手柄支持
-- **内核侧设备树覆写** 无需关闭 AVB 校验, 使用 overwriter 修补设备树
+- 设备树覆写: 无需关闭 AVB 校验, 在内核侧修补设备树
 
 | 设备树覆写支持机型 | prjname | 修改 |
 | - | - | - |
@@ -51,9 +52,6 @@
 - BLK/BLKdev 不收集 io stat
 - 去除 drm 中的 debug
 - 去除 psi 中的 debug
-
-#### 🔓 妥协安全性换取的性能提升
-- 禁用 Spectre-BHB 缓解措施以启用基于历史的分支预测
 
 #### ⚡ CPU 优化
 - cpuidle: 去除 menu 的 iowait
