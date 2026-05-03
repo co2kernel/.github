@@ -23,83 +23,58 @@ Customized kernel built for Hedwig/Xueying (OnePlus Open)
 
 <h1></h1>
 
-#### 👾 Kernel-side Root Implementation
+#### 👾 Hacky Tricks
+- Disabled Spectre-BHB mitigations to enable history-based branch prediction
+- Uses optprobe to speed up KernelSU LKM and OnePlus kernel module Kprobe performance
 - Spoofs official proc/version
 - Spoofs official proc/config.gz
-- KernelSU Next: latest release
-- KernelSU Scope Minimized Hooks: v1.4
-- Enables tmpfs extended attributes to support "Mountify"
 - Fixes ptrace msg leak
+- Disables Nagle's algorithm for TCP connections to reduce latency
+- Adds the NTSync driver for Wine
+- Expands Nintendo Pro / Joy-Con controller support
+- Device tree overwriting: patches the device tree on the kernel side without disabling AVB verification
 
-#### 🌳 Kernel-side Device Tree Overwriting
-- Patches device tree using "Overwriter" without disabling AVB verify
-- OnePlus Open (22899):
-  - Enforces 120Hz while preserving LTPO
-- OPPO Find N3 (22003, 22203):
-  - No modification yet (DTS and cmdline needed)
+| Device tree overwrite support | prjname | Modification |
+| - | - | - |
+| OnePlus Open | 22899 | Force global 120Hz while preserving LTPO behavior |
+| OPPO Find N3 | 22003 / 22203 | No modification yet (requires user-submitted DTS and cmdline) |
 
 #### 🦄 Compiler Optimizations
-- Compiled with LTO = Thin
-- Compiled with O3 optimization
-- Enabled LLVM Polly optimizer
-- LTO noinline to "freezer_trap"
+- Built with LTO=Thin
+- Built with O3 optimization
+- Enabled the LLVM Polly optimizer
+- Applied LTO noinline to freezer_trap
 
 #### 🖨️ Performance Gains by Debug Trade-offs
 - Disabled avc logs
 - Disabled KFENCE
 - Disabled UBSAN
 - Disabled I/O stat collection for BLK/BLKdev
-- Disabled self-hosted debug
 - DRM: Removed debug logs
 - PSI: Removed debug logs
 
-#### 🔓 Performance Gains by Security Trade-offs
-- Disabled Spectre-BHB mitigations to enable history-based branch prediction
-
 #### ⚡ CPU Optimizations
 - cpuidle: removed iowait from the menu
-- PELT half-life reduced from 32 ms → 16 ms
+- PELT half-life reduced from 32ms to 16ms
 - Reduced task migration overhead
-- Default to LSE atomic instructions
+- Default to the LSE atomic instruction set
 - CRC-32 uses ARM64 acceleration
-- Relaxed alarmtimer to avoid blocking suspend
-
-#### 📈 Network Optimizations
-- Introduced "westwood-sub", a fork of "westwood-plus" with BBR-style convergence
-- Set "westwood-sub" as the default TCP congestion algorithm
-- Set "FQ-CoDel" as the default qdisc scheduler
-- Disabled Nagle algorithm for TCP to reduce latency
 
 #### 🧻 Memory Optimizations
 - lz4: v1.10.0 + ARMv8 acceleration
-- Optimized memory functions (~25%+ faster):
+- Optimized mem* routines (~25%+ faster)
   - memcpy
   - memmove
   - memset
-- kvmalloc: make kmalloc fast path real fast path
-- vmalloc: support huge virtual memory blocks
 - mm: no reserved memory for user/admin login (~136 MB freed)
-- arm64: 16b alignment for "clear_page()"
-- loop: improved priority for zram writeback
+- arm64: 16-byte alignment for clear_page
+- loop: improved writeback ring priority
 - Minor zram optimizations
 - SELinux: avoid dynamic memory allocations
 
 #### 📀 Storage Optimizations
-- Added SSG I/O scheduler and enforce it as the default scheduler
-- fs: reduced cache to better utilize large RAM
+- Enforced none as the default I/O scheduler
 - fs: 8b alignment
-
-#### 🎮 Gaming Optimizations
-- Synced upstream controller compatibility list
-- Synced upstream button mapping updates
-- Added full support for Nintendo Pro / Joy-Con controllers
-- Added NTSync driver for Wine
-
-#### 📦 LXC Container Support
-- Optional LXC container support
-
-#### 🪦 "Tombstone" Modules Support
-- Added Re:Kernel for supporting userspace "tombstome" modules
 
 ## 🍀 Special Thanks
 This kernel integrates commits from **Sultan, arter97, Pzqqt, brokestar233, ztc1997, hfdem, and other kernel developers**
